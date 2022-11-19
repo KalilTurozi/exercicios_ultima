@@ -1,1 +1,5 @@
-https://drive.google.com/drive/folders/1HB7jAdyMoBrO3HkDJ10i7YN4OeaKZH9T?usp=sharing
+h = 80
+vi = 1000
+vh = 20.45 * h
+vf = vt + vt * 15 / 100
+print(f'O freelancer deverá cobrar R${vf:.2f}')
