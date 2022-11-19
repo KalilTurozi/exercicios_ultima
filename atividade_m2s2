@@ -1,1 +1,12 @@
-https://drive.google.com/file/d/12QWS058IMe5V-JPA1Ehc4Y4QO8qCCoXa/view?usp=sharing
+import sqlite3
+
+conexao = sqlite3.connect('banco_relacionamentos')
+cursor = conexao.cursor()
+cursor.execute('CREATE TABLE cliente(id INT NOT NULL, nome varchar(100));')
+cursor.execute('CREATE TABLE categoria(id_categoria INT NOT NULL, nome VARCHAR(100), PRIMARY KEY(id_categoria));')
+cursor.execute('CREATE TABLE produto(id_produto INT NOT NULL, nome VARCHAR(100), id_categoria INT NOT NULL, PRIMARY KEY(id_produto), FOREIGN KEY(id_categoria) REFERENCES categoria(id_produto));')
+cursor.execute('CREATE TABLE categoria(ID INT NOT NULL, nome VARCHAR(100), PRIMARY KEY(id));')
+cursor.execute('CREATE TABLE produto(id INT NOT NULL, nome VARCHAR(100), PRIMARY KEY(id));')
+cursor.execute('CREATE TABLE categoria_produto(categoria_id INT NOT NULL, produto_id INT NOT NULL, FOREIGN KEY(categoria_id) REFERENCES categoria(id), FOREIGN KEY(produto_id) REFERENCES produto(id), CONSTRAINT pk_cat_prod PRIMARY KEY(categoria_id, produto_id));')
+conexao.commit()
+conexao.close()
