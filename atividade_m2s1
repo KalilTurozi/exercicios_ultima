@@ -1,0 +1,8 @@
+CREATE TABLE cliente(
+	ID int NOT NULL,
+	NOME varchar(80),
+	CPF varchar(11),
+	DATA_CADASTRO text DEFAULT CURRENT_TIMESTAMP,
+	ENDERECO varchar(80),
+	PRIMARY KEY(Id)
+);
